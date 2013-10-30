@@ -1,2 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h2>Company Blog</h2>
+
+<!-- loop through all the available blog posts -->
+
+<% @posts.each do |post| %>
+  <article>
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <div>
+      <%= post.content %>
+    </div>
+  </article>
+<% end %>

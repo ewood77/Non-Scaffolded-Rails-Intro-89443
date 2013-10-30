@@ -10,13 +10,16 @@
   <header>
     <%= image_tag 'rails.png' %>
   </header>
+  
   <ul id="menu">
     <!-- The second argument of link_to is always
          the route name followed by _path -->
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'About Us', about_path %></li>
     <li><%= link_to 'Contact Us', contact_path %></li>
+    <li><%= link_to 'Blog', posts_path %></li>
   </ul>
+  
 <!-- This is where each view is injected. -->
 <%= yield %>
 
