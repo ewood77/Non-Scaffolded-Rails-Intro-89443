@@ -27,4 +27,22 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to :action => :index
   end #No destroy.html.erb needs to exist, we always redirect
+  
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    #update and save this post using the user data
+    @post.update_attributes(params[:post])
+    
+    if @post.save
+      #redirect to the index actions
+      redirect_to :action => :index
+    else
+      #load up the view associated with the new action
+      render :action => :edit
+    end
+  end
 end
