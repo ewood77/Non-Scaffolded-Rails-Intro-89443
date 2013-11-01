@@ -1,1 +1,30 @@
 <h2>Create a New Blog Post</h2>
+
+<!-- the f block param is called a form builder
+     it will help us build our form
+     
+     f is aware that a post has a title and content -->
+<%= form_for @post do |f| %>
+
+  <% if @post.errors.any? %>
+    <p style="color:red">
+      All posts require a title and content
+    </p>
+  <% end %>
+  
+
+  <div>
+    <%= f.label :title %> <!-- generates an html label element -->
+    <br />
+    <%= f.text_field :title %> <!-- generates an input field for the label -->
+  </div>
+  <br />
+  <div>
+    <%= f.label :content %>
+    <br />
+    <%= f.text_area :content%>
+  </div>
+  <div>
+    <%= f.submit "Submit New Bog Post"%>
+  </div>
+<% end %>
