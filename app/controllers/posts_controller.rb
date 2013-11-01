@@ -21,4 +21,10 @@ class PostsController < ApplicationController
       render :action => :new
     end
   end #On success redirects to index, else uses new.html.erb
+  
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to :action => :index
+  end #No destroy.html.erb needs to exist, we always redirect
 end
