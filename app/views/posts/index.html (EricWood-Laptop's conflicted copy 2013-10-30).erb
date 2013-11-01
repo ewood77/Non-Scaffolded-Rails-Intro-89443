@@ -4,13 +4,9 @@
 
 <% @posts.each do |post| %>
   <article>
-    <h3><%= link_to post.title, post %></h3>
+    <h3><%= link_to post.title, post_path(post) %></h3>
     <div>
       <%= post.content %>
     </div>
   </article>
 <% end %>
-
-<p>
-  <%= link_to 'Create New Blog Post', new_post_path %>
-</p>
